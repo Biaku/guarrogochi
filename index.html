@@ -53,6 +53,7 @@
         setInterval(gastarEstadisticas, 2000);
 
     });
+
     $("#btn-sed").click(function () {
         sed += 1;
         alert("a huevo ta chida esta chela");
@@ -114,7 +115,6 @@
                 alert("perro de mierda dame cheve");
                 break;
         }
-
         if (sed <= 0) {
             vida -= 1;
             sed = 0;
@@ -134,6 +134,7 @@
             diversion = 0;
             felicidad -= 1;
             if (felicidad <= 0) {
+                felicidad = 0;
                 vida -= 1;
             }
         }
@@ -148,10 +149,11 @@
                 alert("me mori te voy a venir a jalar los putos pies");
                 break;
         }
+        if (vida <= 0) {
+            vida = 0;
+        }
 
     }
-
-
 </script>
 </body>
 </html>
