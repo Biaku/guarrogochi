@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Guarrogochi</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<main>
+    <h1>Guarrogochi</h1>
+    <p>Khe Honda morro pOnEmE un ApoDo0 Chodori</p>
+    <input type="text" name="nombre">
+    <button id="btn-iniciar">Bautizar</button>
+    <p><b>Yo mero</b></p>
+    <ul>
+        <li>Nombre: <span id="nombre"></span></li>
+        <li>Salud: <span id="vida"></span></li>
+        <li>Diversion: <span id="diversion"></span></li>
+        <li>Hambre: <span id="hambre"></span></li>
+        <li>Sed: <span id="sed"></span></li>
+        <li>Felicidad: <span id="felicidad"></span></li>
+    </ul>
+    <p><b>Que vamo hace pue</b></p>
+    <ul>
+        <li>
+            <button id="btn-sed">Vamo a rajar mierda</button>
+        </li>
+        <li>
+            <button id="btn-diversion">Vamo al putero</button>
+        </li>
+        <li>
+            <button id="btn-hambre">Saca los tacos de perrito pue</button>
+        </li>
+    </ul>
+</main>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    var nombre;
+    var vida = 100; // se muere de hambre, sed, diversion
+    var hambre = 100;
+    var sed = 100;
+    var felicidad = 100; // se puede morir de tristeza
+    var diversion = 100;
+
+    var btn_iniciar = $("#btn-iniciar");
+    btn_iniciar.click(function (e) {
+        nombre = $("input[name=nombre]").val();
+        if (nombre === '') {
+            alert("ponme un nombre pues jijuelaverga");
+            return;
+        }
+        getEstadisticas();
+        setInterval(gastarEstadisticas, 2000);
+
+    });
+    $("#btn-sed").click(function () {
+        sed += 1;
+        alert("a huevo ta chida esta chela");
+        getEstadisticas();
+    });
+
+    $("#btn-diversion").click(function () {
+        diversion += 1;
+        alert("es puta estaba rica");
+        getEstadisticas();
+    });
+    $("#btn-hambre").click(function () {
+        hambre += 1;
+        alert("a la verga hasta un diente me toco");
+        getEstadisticas();
+    });
+
+    function getEstadisticas() {
+        $("#nombre").html(nombre);
+        $("#vida").html(vida);
+        $("#hambre").html(hambre);
+        $("#sed").html(sed);
+        $("#felicidad").html(felicidad);
+        $("#diversion").html(diversion);
+    }
+
+    function gastarEstadisticas() {
+        hambre -= 10;
+        sed -= 10;
+        diversion -= 10;
+        restarSalud();
+        getEstadisticas();
+    }
+
+    function restarSalud() {
+        switch (hambre) {
+            case 50:
+                alert("oye diantre ya tengo hambre");
+                break;
+            case 20:
+                alert("dame de comer pues culero");
+                break;
+            case 0:
+                alert("culero que tengo hambre demonio mal nacido");
+                break;
+        }
+        if (hambre <= 0) {
+            vida -= 1;
+            hambre = 0;
+        }
+        switch (sed) {
+            case 60:
+                alert("como que ya me esta dando sed de la mala");
+                break;
+            case 30:
+                alert("no se que verga esperas para ir al otso ijuelañonga");
+                break;
+            case 0:
+                alert("perro de mierda dame cheve");
+                break;
+        }
+
+        if (sed <= 0) {
+            vida -= 1;
+            sed = 0;
+        }
+        switch (diversion) {
+            case 70:
+                alert("llevame a rolar no sea culero");
+                break;
+            case 40:
+                alert("como que se me antojan unas guarritas");
+                break;
+            case 0:
+                alert("ora pues saca los culos");
+                break;
+        }
+        if (diversion <= 0) {
+            diversion = 0;
+            felicidad -= 1;
+            if (felicidad <= 0) {
+                vida -= 1;
+            }
+        }
+        switch (vida) {
+            case 60:
+                alert("no me dejes morir culero te quiero");
+                break;
+            case 25:
+                alert("a la verga ya casi veo a san pedro");
+                break;
+            case 0:
+                alert("me mori te voy a venir a jalar los putos pies");
+                break;
+        }
+
+    }
+
+
+</script>
+</body>
+</html>
